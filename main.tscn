@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://oig5fw6aq153"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_74k7w"]
+
+[sub_resource type="FontFile" id="FontFile_q5iay"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_74k7w")
+
+[node name="Editor" type="CodeEdit" parent="."]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = 168.0
+offset_right = 1924.0
+offset_bottom = 1094.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontFile_q5iay")
+placeholder_text = "~ Slug Editor ~"
+scroll_smooth = true
+caret_blink = true
+highlight_all_occurrences = true
+draw_control_chars = true
+draw_tabs = true
+code_completion_enabled = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="PathSetter" type="TextEdit" parent="."]
+unique_name_in_owner = true
+offset_right = 1921.0
+offset_bottom = 147.0
+text = "~/Documents"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="FileDialog" type="FileDialog" parent="."]
+position = Vector2i(0, 36)
+size = Vector2i(504, 400)
+visible = true
+access = 2
+
+[connection signal="text_changed" from="PathSetter" to="." method="_on_path_setter_text_changed"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
