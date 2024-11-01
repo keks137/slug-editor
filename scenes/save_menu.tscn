@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx1pd2nrtl63x"]
+
+[ext_resource type="Script" path="res://scripts/save_menu.gd" id="1_m4nv0"]
+
+[node name="Save Menu" type="FileDialog"]
+position = Vector2i(110, 120)
+size = Vector2i(1710, 840)
+visible = true
+access = 2
+show_hidden_files = true
+script = ExtResource("1_m4nv0")
+
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

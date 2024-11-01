@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b16bqc4vt1oy0"]
+
+[ext_resource type="Script" path="res://scripts/open_menu.gd" id="1_2fao6"]
+
+[node name="Open Menu" type="FileDialog"]
+title = "Open a File"
+position = Vector2i(110, 120)
+size = Vector2i(1710, 840)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+show_hidden_files = true
+script = ExtResource("1_2fao6")
+
+[connection signal="file_selected" from="." to="." method="_on_file_selected"]

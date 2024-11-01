@@ -2,23 +2,24 @@ extends Node2D
 @onready var editor: CodeEdit = %Editor
 @onready var path_setter: TextEdit = %PathSetter
 
+var work_dir := OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
 var work_path := OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
+const SAVE_MENU := preload("res://scenes/save_menu.tscn")
+const OPEN_MENU := preload("res://scenes/open_menu.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#OS.set_use_file_access_save_and_swap(true)
-	
+	path_setter.text = work_path
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#
-	if Input.is_action_just_pressed("Save"):
-		save_file(editor.text)
+	pass
 
-func save_file(content):
+func create_or_save_file(content):
 	var file = FileAccess.open(work_path, FileAccess.WRITE_READ)
 	print(work_path)
 	file.store_string(content)
@@ -42,3 +43,29 @@ func _on_file_dialog_file_selected(path: String) -> void:
 		editor.text = ""
 	work_path = path
 	path_setter.text = work_path
+
+
+func _on_save_button_pressed() -> void:
+	var save_menu = SAVE_MENU.instantiate()
+	add_child(save_menu)
+	save_menu.connect("file_and_dir_selected", _savefile_and_dir_selected)
+	save_menu.current_dir = work_dir
+	save_menu.current_file = work_path
+
+
+func _on_open_button_pressed() -> void:
+	var open_menu = OPEN_MENU.instantiate()
+	add_child(open_menu)
+	open_menu.connect("file_and_dir_selected", _openfile_and_dir_selected)
+	open_menu.current_dir = work_dir
+	open_menu.current_file = work_path
+
+func _savefile_and_dir_selected(path: String, dir: String) -> void:
+	work_path = path
+	work_dir = dir
+	create_or_save_file(editor.text)
+
+func _openfile_and_dir_selected(path: String, dir: String) -> void:
+	work_path = path
+	work_dir = dir
+	editor.text = load_file(work_path)

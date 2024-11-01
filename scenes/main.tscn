@@ -1,16 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://oig5fw6aq153"]
+[gd_scene load_steps=2 format=3 uid="uid://oig5fw6aq153"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_74k7w"]
-
-[sub_resource type="FontFile" id="FontFile_q5iay"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_slw0n"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_74k7w")
+script = ExtResource("1_slw0n")
 
 [node name="Editor" type="CodeEdit" parent="."]
 unique_name_in_owner = true
@@ -20,7 +13,7 @@ offset_right = 1924.0
 offset_bottom = 1094.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-theme_override_fonts/font = SubResource("FontFile_q5iay")
+theme_override_font_sizes/font_size = 32
 placeholder_text = "~ Slug Editor ~"
 scroll_smooth = true
 caret_blink = true
@@ -34,19 +27,28 @@ auto_brace_completion_highlight_matching = true
 
 [node name="PathSetter" type="TextEdit" parent="."]
 unique_name_in_owner = true
+offset_left = 786.0
 offset_right = 1921.0
-offset_bottom = 147.0
-text = "~/Documents"
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 32
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="FileDialog" type="FileDialog" parent="."]
-position = Vector2i(0, 36)
-size = Vector2i(504, 400)
-visible = true
-ok_button_text = "Save"
-access = 2
+[node name="SaveButton" type="Button" parent="."]
+offset_right = 163.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "Save
+"
+
+[node name="OpenButton" type="Button" parent="."]
+offset_left = 164.0
+offset_right = 327.0
+offset_bottom = 53.0
+theme_override_font_sizes/font_size = 32
+text = "Open"
 
 [connection signal="text_changed" from="PathSetter" to="." method="_on_path_setter_text_changed"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="OpenButton" to="." method="_on_open_button_pressed"]
