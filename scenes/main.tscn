@@ -49,6 +49,7 @@ offset_bottom = 53.0
 theme_override_font_sizes/font_size = 32
 text = "Open"
 
+[connection signal="gui_input" from="Editor" to="." method="_on_editor_gui_input"]
 [connection signal="text_changed" from="PathSetter" to="." method="_on_path_setter_text_changed"]
 [connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="OpenButton" to="." method="_on_open_button_pressed"]

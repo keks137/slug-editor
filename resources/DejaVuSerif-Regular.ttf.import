@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://c25xfs7ksckx1"
-path="res://.godot/imported/DejaVuSerif-Regular.ttf-6bf07942b98914f509880c286b63923f.fontdata"
+path="res://.godot/imported/DejaVuSerif-Regular.ttf-cabd703180e10c68e2a3d38640211710.fontdata"
 
 [deps]
 
-source_file="res://ressources/DejaVuSerif-Regular.ttf"
-dest_files=["res://.godot/imported/DejaVuSerif-Regular.ttf-6bf07942b98914f509880c286b63923f.fontdata"]
+source_file="res://resources/DejaVuSerif-Regular.ttf"
+dest_files=["res://.godot/imported/DejaVuSerif-Regular.ttf-cabd703180e10c68e2a3d38640211710.fontdata"]
 
 [params]
 
