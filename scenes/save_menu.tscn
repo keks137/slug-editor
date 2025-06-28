@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bx1pd2nrtl63x"]
 
-[ext_resource type="Script" path="res://scripts/save_menu.gd" id="1_m4nv0"]
+[ext_resource type="Script" uid="uid://cfdv4qr1h8t2y" path="res://scripts/save_menu.gd" id="1_m4nv0"]
 
 [node name="Save Menu" type="FileDialog"]
 position = Vector2i(110, 120)

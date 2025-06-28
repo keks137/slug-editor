@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b16bqc4vt1oy0"]
 
-[ext_resource type="Script" path="res://scripts/open_menu.gd" id="1_2fao6"]
+[ext_resource type="Script" uid="uid://c8jq17sh4563b" path="res://scripts/open_menu.gd" id="1_2fao6"]
 
 [node name="Open Menu" type="FileDialog"]
 title = "Open a File"
